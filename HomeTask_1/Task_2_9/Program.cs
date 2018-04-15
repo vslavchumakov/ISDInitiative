@@ -96,6 +96,7 @@ namespace Task_2_9
 
             //показываем результат перевода в другую валюту
             ShowResult(cash, currency);
+            Console.ReadKey();
         }
     }
 }
