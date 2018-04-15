@@ -4,63 +4,98 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_2_5
+namespace Task_2_9
 {
     /// <summary>
-    /// 2.5. Вывести название дня недели по его номеру (1 - понедельник, 7 - воскресенье) 
+    /// 2.9. Сделать программу перевода валют. Вводится сумма, потом выбирается вид валюты – гривны или доллары или евро,
+    /// программа переводит в две другие валюты. Текущий курс валюты считать известным.
     /// </summary>
     class Program
     {
         /// <summary>
-        /// запрашиваем у пользователя день недели
+        /// возможные валюты
         /// </summary>
-        /// <returns>int день недели</returns>
-        private static int GetDay()
+        enum Currency { GRN, USD, EUR };
+
+        /// <summary>
+        /// массив коэффециентов перевода валют
+        /// </summary>
+        private static double[][] priceCurrency = new double[][] {
+                        new double[]{ 1 , 0.0385 , 0.0312 },
+                        new double[]{ 25.9864 , 1 , 0.8115 },
+                        new double[]{ 32.023 , 1.2323 , 1 } };
+
+        /// <summary>
+        /// запрашиваем у пользователя сумму
+        /// </summary>
+        /// <returns>int сумма наличных</returns>
+        static int GetCash()
         {
             string enter;
-            int min = 1;
-            int max = 7;
             while (true)
             {
-                Console.Write("Введите число от 1 до 7: ");
+                Console.Write("Введите сумму, которая у вас есть на руках: ");
                 enter = Console.ReadLine();
                 if (int.TryParse(enter, out int number))
                 {
-                    if (number >= min && number <= max)
+                    if (number > 0)
                     {
-                        return number;
+                        return int.Parse(enter);
                     }
                 }
             };
         }
 
+        /// <summary>
+        /// запрашиваем у пользователя валюту
+        /// </summary>
+        /// <returns>Currency - валюта</returns>
+        static Currency GetCurrency()
+        {
+            string enter;
+            while (true)
+            {
+                Console.WriteLine("0 - " + Currency.GRN + "\n1 - " + Currency.USD + "\n2 - " + Currency.EUR);
+                Console.Write("Выбирите валюту: ");
+                enter = Console.ReadLine();
+                if (int.TryParse(enter, out int number))
+                {
+                    if (number >= (int)Currency.GRN || number <= (int)Currency.EUR)
+                    {
+                        return (Currency)int.Parse(enter);
+                    }
+                }
+            };
+        }
+
+        /// <summary>
+        /// выводим результат
+        /// </summary>
+        /// <param name="cash">сумма наличных</param>
+        /// <param name="currency">валюта</param>
+        static void ShowResult(int cash, Currency currency)
+        {
+            for (int i = 0; i < priceCurrency[(int)currency].Length; i++)
+            {
+                if (i != (int)currency)
+                {
+                    int round = 2;
+                    Console.WriteLine(Enum.GetName(typeof(Currency), i) + "" +
+                        " : " + Math.Round(cash * priceCurrency[(int)currency][i], round));
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
-            int day = GetDay();
-            switch (day)
-            {
-                case 1:
-                    Console.WriteLine("Понедельник");
-                    break;
-                case 2:
-                    Console.WriteLine("Вторник");
-                    break;
-                case 3:
-                    Console.WriteLine("Среда");
-                    break;
-                case 4:
-                    Console.WriteLine("Четверг");
-                    break;
-                case 5:
-                    Console.WriteLine("Пятница");
-                    break;
-                case 6:
-                    Console.WriteLine("Суббота");
-                    break;
-                case 7:
-                    Console.WriteLine("Воскрксенье");
-                    break;
-            }
+            //наличнве
+            int cash = GetCash();
+
+            //валюта
+            Currency currency = GetCurrency();
+
+            //показываем результат перевода в другую валюту
+            ShowResult(cash, currency);
             Console.ReadKey();
         }
     }
