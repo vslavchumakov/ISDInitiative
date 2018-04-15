@@ -35,6 +35,7 @@ namespace Task_3_8
         static void Main(string[] args)
         {
             GetPassword();
+            Console.ReadKey();
         }
     }
 }
