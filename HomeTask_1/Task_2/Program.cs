@@ -19,7 +19,6 @@ namespace HomeTask_1.Task_2
             {
                 Console.Write("ВВедите число: ");
                 enter = Console.ReadLine();
-
             } while (!int.TryParse(enter, out int number));
             return int.Parse(enter);
         }
@@ -30,6 +29,7 @@ namespace HomeTask_1.Task_2
             Console.WriteLine();
             int number2 = ReadNumber();
             Console.WriteLine(number1 > number2 ? number1 : number2);
+            Console.ReadKey();
         }
     }
 }
