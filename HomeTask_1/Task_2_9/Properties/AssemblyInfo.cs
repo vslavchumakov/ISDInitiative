@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Task_2_9_Kulikova")]
+[assembly: AssemblyTitle("Task_2_9")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Task_2_9_Kulikova")]
+[assembly: AssemblyProduct("Task_2_9")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cc1b55d8-32f8-494e-9902-17a77ac5c5e4")]
+[assembly: Guid("7534d77f-2cf3-4e53-b9d8-6de6c37362e5")]
 
 // Version information for an assembly consists of the following four values:
 //

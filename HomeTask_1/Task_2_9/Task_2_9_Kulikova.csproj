@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC1B55D8-32F8-494E-9902-17A77AC5C5E4}</ProjectGuid>
+    <ProjectGuid>{7534D77F-2CF3-4E53-B9D8-6DE6C37362E5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task_2_9_Kulikova</RootNamespace>
-    <AssemblyName>Task_2_9_Kulikova</AssemblyName>
+    <RootNamespace>Task_2_9</RootNamespace>
+    <AssemblyName>Task_2_9</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
