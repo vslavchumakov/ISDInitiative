@@ -10,7 +10,9 @@ namespace HomeTask_1.Task_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello!!!");
+            Console.WriteLine("+-------------------------------+");
+            Console.WriteLine("|Чумаков Вячеслав Николаевич|");
+            Console.WriteLine("+-------------------------------+");
             Console.ReadKey();
         }
     }
