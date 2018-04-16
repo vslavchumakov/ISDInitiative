@@ -52,6 +52,7 @@ namespace Task_4
                                         new Point(16, -2, "4"),
                                         new Point(1, 14, "5"));
             ShowInformationFigure(figure3);
+            Console.ReadKey();
         }
     }
 }

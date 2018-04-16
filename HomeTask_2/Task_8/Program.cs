@@ -39,6 +39,7 @@ namespace Task_8
 
             Invoice invoice2 = new Invoice(8712, "АТБ", "Gale");
             ShowInvoice(invoice2);
+            Console.ReadKey();
         }
     }
 }
