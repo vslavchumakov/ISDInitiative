@@ -24,20 +24,20 @@ namespace Task_8
         /// <summary>
         /// стоимость
         /// </summary>
-        public readonly int account;
-        //public int Account { get; private set; }
+        //public readonly int account;
+        public int Account { get;}
 
         /// <summary>
         /// заказчик
         /// </summary>
-        public readonly string customer;
-        //public string Customer { get; private set; }
+        //public readonly string customer;
+        public string Customer { get;}
 
         /// <summary>
         /// поставщик
         /// </summary>
-        public readonly string provider;
-        //public string Provider { get; private set; }
+        //public readonly string provider;
+        public string Provider { get; }
 
         /// <summary>
         /// конструктор
@@ -47,9 +47,9 @@ namespace Task_8
         /// <param name="provider">поставщик</param>
         public Invoice(int account, string customer, string provider)
         {
-            this.account = account;
-            this.customer = customer;
-            this.provider = provider;
+            this.Account = account;
+            this.Customer = customer;
+            this.Provider = provider;
         }
 
         /// <summary>
@@ -57,6 +57,6 @@ namespace Task_8
         /// </summary>
         /// <param name="withNDS">учитывание НДС, true-учитывает ндс false- не учитывает НДС</param>
         /// <returns>стоимость заказа</returns>
-        public double Culculation(bool withNDS = true) => (withNDS ? 1.2 : 1) * account * quantity;
+        public double Culculation(bool withNDS = true) => (withNDS ? 1.2 : 1) * Account * quantity;
     }
 }
