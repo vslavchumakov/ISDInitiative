@@ -25,8 +25,8 @@ namespace Task_8
         /// <param name="invoice"></param>
         private static void ShowInvoice(Invoice invoice)
         {
-            Console.WriteLine("Customer: " + invoice.Customer);
-            Console.WriteLine("Provider: " + invoice.Provider);
+            Console.WriteLine("Customer: " + invoice.customer);
+            Console.WriteLine("Provider: " + invoice.provider);
             Console.WriteLine("Стоимость заказа (без НДС): " + invoice.Culculation(false));
             Console.WriteLine("C учётом НДС: " + invoice.Culculation());
             Console.WriteLine("\n------------------------------");
