@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7A36DFC1-ECE2-412F-9541-7C14DDB75338}</ProjectGuid>
+    <ProjectGuid>{72E00FA3-8771-49F7-B1A5-F8346DA63D7F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task_4</RootNamespace>
-    <AssemblyName>Task_4</AssemblyName>
+    <RootNamespace>Task_2</RootNamespace>
+    <AssemblyName>Task_2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,9 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocumentWorker.cs" />
-    <Compile Include="ExpertDocumentWorker.cs" />
-    <Compile Include="ProDocumentWorker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
