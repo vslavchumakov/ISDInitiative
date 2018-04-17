@@ -4,7 +4,7 @@ ISD Initiative Group 8
 
 ###### [C# Programming](#ISDInitiative)
 * [Intro to C#](HomeTask_1)
-* [Classes]()
+* [Classes](HomeTask_2)
 * [Inheritance]()
 * [Abstractions]()
 * [Static]()
