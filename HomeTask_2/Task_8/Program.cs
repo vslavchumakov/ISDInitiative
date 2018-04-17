@@ -34,6 +34,7 @@ namespace Task_8
 
         static void Main(string[] args)
         {
+            //создаём объекты
             Invoice invoice1 = new Invoice(1000, "EVA", "Smile");
             ShowInvoice(invoice1);
 
