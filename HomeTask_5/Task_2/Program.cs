@@ -36,7 +36,7 @@ namespace Task_2
         /// <summary>
         /// метод выводит в консоль массив
         /// </summary>
-        /// <param name="ints"></param>
+        /// <param name="ints">массив целочисленных значений</param>
         private static void ShowArray(int[] ints)
         {
             for (int i = 0; i < ints.Length; i++)
@@ -52,7 +52,7 @@ namespace Task_2
             ShowArray(ints);
             ints.ToSort();
             ShowArray(ints);
+            Console.ReadKey();
         }
-
     }
 }

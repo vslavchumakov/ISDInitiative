@@ -55,6 +55,7 @@ namespace Task_4
 
         static void Main(string[] args)
         {
+            Console.WriteLine("[keys: pro, exp]");
             Console.Write("Введите ключ PRO: ");
             string pro = Console.ReadLine();
             Console.Write("Введите ключ EXPERT: ");
