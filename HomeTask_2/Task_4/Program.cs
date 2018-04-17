@@ -35,6 +35,7 @@ namespace Task_4
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            //создаём 3 фигуры
             Figure figure1 = new Figure(new Point(0, 0, "1"),
                                         new Point(10, 0, "2"),
                                         new Point(0, 10, "3"));
