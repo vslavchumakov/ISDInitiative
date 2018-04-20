@@ -46,13 +46,13 @@ namespace HomeWork_2_5
         /// <param name="year">год создания профиля</param>
         /// <param name="month">месяц создания профиля</param>
         /// <param name="day">день создания профиля</param>
-        public User(string login, string name, string surname, int age, int year, int month, int day)
+        public User(string login, string name, string surname, int age)
         {
             Login = login;
             Name = name;
             Surname = surname;
             Age = age;
-            Date = new DateTime(year, month, day);
+            Date = DateTime.Now;
         }
 
         /// <summary>

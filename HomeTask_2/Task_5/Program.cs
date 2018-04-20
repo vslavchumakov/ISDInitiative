@@ -16,7 +16,7 @@ namespace HomeWork_2_5
     {
         static void Main(string[] args)
         {
-            User user = new User("root","Alex","Smit",33,2017,10,5);
+            User user = new User("root","Alex","Smit",33);
             Console.WriteLine(user);
             Console.ReadKey();
         }
