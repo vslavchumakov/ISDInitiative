@@ -27,26 +27,34 @@ namespace Task_4
     /// </summary>
     class Program
     {
+        /// <summary>
+        /// метод создает документ в зависимомти от введенных ключей
+        /// </summary>
+        /// <param name="pro">ключ к версии pro, введеный пользователем</param>
+        /// <param name="expert">ключ к версии expert, введенный пользователем</param>
+        /// <returns>экземпляр класса DocumentWorker или его наследника</returns>
         public static DocumentWorker CreateDocumentWorker(string pro, string expert)
         {
+            //оригинальный ключ pro
             string _keyPro = "pro";
+            //оригинальный ключ expert
             string _keyExpert = "exp";
 
             if (_keyPro != pro)
             {
-                Console.WriteLine("base");
+                //Console.WriteLine("base");
                 return new DocumentWorker();
             }
             else
             {
                 if (_keyExpert != expert)
                 {
-                    Console.WriteLine("pro");
+                    //Console.WriteLine("pro");
                     return new ProDocumentWorker();
                 }
                 else
                 {
-                    Console.WriteLine("expert");
+                    //Console.WriteLine("expert");
                     return new ExpertDocumentWorker();
                 }
             }
