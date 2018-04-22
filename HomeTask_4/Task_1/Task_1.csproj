@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E27170C1-D1C6-4FC7-AF95-3496A69854F6}</ProjectGuid>
+    <ProjectGuid>{EBC98A06-7257-4E4C-8156-61D8A3159580}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Task_1</RootNamespace>
     <AssemblyName>Task_1</AssemblyName>
@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

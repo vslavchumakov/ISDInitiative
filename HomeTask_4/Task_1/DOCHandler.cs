@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Task_1
 {
     /// <summary>
-    /// Concrete class XMLHandler  inherit from an abstract  class AbstractHandler
+    /// Concrete class DOCHandler  inherit from an abstract  class AbstractHandler
     /// </summary>
-    class XMLHandler : AbstractHandler
+    class DOCHandler : AbstractHandler
     {
         /// <summary>
         /// Constructor with one parameter
         /// </summary>
         /// <param name="fileName"></param>
-        public XMLHandler(string fileName): base(fileName)
+        public DOCHandler(string fileName) : base(fileName)
         {
         }
 
@@ -24,7 +19,7 @@ namespace Task_1
         /// </summary>
         public override void Save()
         {
-            Console.WriteLine(fileName + " saved in XML-format");
+            Console.WriteLine(fileName + " saved in DOC-format");
         }
     }
 }
