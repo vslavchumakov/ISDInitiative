@@ -49,8 +49,12 @@ namespace Task_2
         static void Main(string[] args)
         {
             int[] ints = new int[] { 12, 8, 45, 1, -9, 3, -99};
+            Console.Write("Array of ints: ");
             ShowArray(ints);
+
+            //сортируем массив
             ints.ToSort();
+            Console.Write("Sorted array of ints: ");
             ShowArray(ints);
             Console.ReadKey();
         }
