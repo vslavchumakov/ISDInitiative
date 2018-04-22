@@ -75,7 +75,6 @@ namespace Task_1
                     break;
                 default:
                     Console.WriteLine("Unable to recognize the format!");
-                    handler = null;
                     break;
             }
         }
