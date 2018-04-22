@@ -3,7 +3,7 @@ ISD Initiative Group 8
 
 
 ###### [C# Programming](#ISDInitiative)
-* [Intro to C#](vslavchumakov/ISDInitiative/tree/master/HomeTask_1)
+* [Intro to C#](HomeTask_1)
 * [Classes](HomeTask_2)
 * [Inheritance](HomeTask_3)
 * [Abstractions](HomeTask_4)
