@@ -10,7 +10,11 @@ namespace Task_2
         /// Field name is the name of pupil
         /// </summary>
         protected string name;
-        
+        public Pupil(string name)
+        {
+            this.name = name;
+        }
+
         // Declared virtual so they can be overridden.
         public virtual void Study()
 		{
