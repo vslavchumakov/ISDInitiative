@@ -9,8 +9,8 @@ ISD Initiative Group 8
 * [Abstractions](HomeTask_4)
 * [Static](HomeTask_5)
 * [Structures](HomeTask_6)
-* [Delegates]()
-* [Generics]()
+* [Delegates](HomeTask_7)
+* [Generics](HomeTask_8)
 * [Collections]()
 * [Input-Output]()
 
