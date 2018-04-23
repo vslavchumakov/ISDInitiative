@@ -46,7 +46,9 @@ namespace Task_6
         public override string ToString()
         {
             StringBuilder data = new StringBuilder();
-            data.Append(Name + " " + Surname +" "+ Enum.GetName(typeof(PositionHoursEnum),PositionHours)+": "+(int)PositionHours);
+            data.Append(Name + " " + Surname + " \n");
+            data.Append("Position: " + Enum.GetName(typeof(PositionHoursEnum), PositionHours)+ "\n");
+            data.Append("Need hours a month"+ ": " + (int)PositionHours);
             return data.ToString();
         }
     }
