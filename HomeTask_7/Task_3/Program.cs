@@ -34,30 +34,30 @@ namespace Task_3
         {
             //создаём массив делегатов
             int count = 5;
-            NumberDlg[] numberHandlers = new NumberDlg[count];
+            NumberDlg[] arrayDlgs = new NumberDlg[count];
 
             //определяем методы, которые будут хранить делегаты
-            for (int i = 0; i < numberHandlers.Length; i++)
+            for (int i = 0; i < arrayDlgs.Length; i++)
             {
-                numberHandlers[i] = new NumberDlg(RandNumber);
+                arrayDlgs[i] = new NumberDlg(RandNumber);
             }
 
             //создаём анонимный метод(делегат)
-            AverageNumbersDlg average = delegate (NumberDlg[] numbers)
+            AverageNumbersDlg averageDlg = delegate (NumberDlg[] arrayNumsDlgs)
             {
                 //накопительная переменная
-                int averageNumbers = 0;
+                long averageNumbers = 0;
 
-                for (int i = 0; i < numbers.Length; i++)
+                for (int i = 0; i < arrayNumsDlgs.Length; i++)
                 {
-                    averageNumbers += numbers[i]();
+                    averageNumbers += arrayNumsDlgs[i]();
                 }
                 //возвращаем среднееарифметическое
-                return averageNumbers /= numbers.Length;
+                return (int)(averageNumbers /= arrayNumsDlgs.Length);
             };
 
             //результат вызова анонимного метода (делегата)
-            Console.WriteLine(average(numberHandlers));
+            Console.WriteLine("Average int is: " + averageDlg(arrayDlgs));
             Console.ReadKey();
         }
     }
