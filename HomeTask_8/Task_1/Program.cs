@@ -29,13 +29,13 @@ namespace Task_1
         {
             public string Model { get; set; }
 
-            public String Color { get; set; }
+            public string Color { get; set; }
         }
 
         /// <summary>
         /// статический фабричный метод. Возвращает объект заданного класса.
         /// </summary>
-        /// <typeparam name="T">объект класса Т</typeparam>
+        /// <typeparam name="T">объект типа Т</typeparam>
         public class MyClass<T> where T : new()//ограничение указывает, что любой аргумент типа в объявлении
                                                //универсального класса должен иметь открытый конструктор без параметров.
                                                //Чтобы использовать ограничение new, тип не может быть абстрактным.
