@@ -46,14 +46,14 @@ namespace Task_3
             AverageNumbersDlg averageDlg = delegate (NumberDlg[] arrayNumsDlgs)
             {
                 //накопительная переменная
-                int averageNumbers = 0;
+                long averageNumbers = 0;
 
                 for (int i = 0; i < arrayNumsDlgs.Length; i++)
                 {
                     averageNumbers += arrayNumsDlgs[i]();
                 }
                 //возвращаем среднееарифметическое
-                return averageNumbers /= arrayNumsDlgs.Length;
+                return (int)(averageNumbers /= arrayNumsDlgs.Length);
             };
 
             //результат вызова анонимного метода (делегата)
