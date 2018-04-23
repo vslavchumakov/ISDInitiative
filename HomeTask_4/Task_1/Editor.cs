@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 namespace Task_1
 {
     /// <summary>
@@ -55,9 +56,9 @@ namespace Task_1
         /// <param name="fileName"></param>
         public void DefineFormatDocument(string fileName)
         {
-            string formatDocument = fileName.Substring(fileName.Length - 4);
-
-            switch (formatDocument.ToUpper())
+            string extension;
+            extension = Path.GetExtension(fileName);
+            switch (extension.ToUpper())
             {
                 case ".DOC":
                     handler = new DOCHandler(fileName);
