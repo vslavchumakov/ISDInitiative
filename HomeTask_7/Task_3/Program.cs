@@ -42,7 +42,7 @@ namespace Task_3
                 numberHandlers[i] = new NumberDlg(RandNumber);
             }
 
-            //создаём ананимный метод(делегат)
+            //создаём анонимный метод(делегат)
             AverageNumbersDlg average = delegate (NumberDlg[] numbers)
             {
                 //накопительная переменная
@@ -56,7 +56,7 @@ namespace Task_3
                 return averageNumbers /= numbers.Length;
             };
 
-            //результат вызова ананимного метода (делеата)
+            //результат вызова анонимного метода (делегата)
             Console.WriteLine(average(numberHandlers));
             Console.ReadKey();
         }
