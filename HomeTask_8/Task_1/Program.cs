@@ -18,25 +18,23 @@ namespace Task_1
         class Person
         {
             public string Name { get; set; }
-
             public int Age { get; set; }
         }
 
         /// <summary>
-        /// тестируемый класс машина
+        /// тестируемая стуктура поезд
         /// </summary>
-        class Car
+        struct Train
         {
-            public string Model { get; set; }
-
-            public string Color { get; set; }
+            public int Number { get; set; }
+            public DateTime Date { get; set; }
         }
 
         /// <summary>
         /// статический фабричный метод. Возвращает объект заданного типа.
         /// </summary>
         /// <typeparam name="T">объект типа Т</typeparam>
-        public class MyClass<T> where T : new()//ограничение указывает, что любой аргумент типа в объявлении
+        abstract public class MyClass<T> where T : new()//ограничение указывает, что любой аргумент типа в объявлении
                                                //универсального класса должен иметь открытый конструктор без параметров.
                                                //Чтобы использовать ограничение new, тип не может быть абстрактным.
         {
@@ -50,9 +48,9 @@ namespace Task_1
 
         static void Main(string[] args)
         {
-            //создаём объекты произвольных классов с помощью фабричного метода
+            //создаём объекты произвольных типов с помощью фабричного метода
             Person person = MyClass<Person>.FactoryMethod();
-            Car car = MyClass<Car>.FactoryMethod();
+            Train train = MyClass<Train>.FactoryMethod();
         }
     }
 }

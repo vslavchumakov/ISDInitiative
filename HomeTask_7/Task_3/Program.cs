@@ -40,20 +40,22 @@ namespace Task_3
             for (int i = 0; i < arrayDlgs.Length; i++)
             {
                 arrayDlgs[i] = new NumberDlg(RandNumber);
+                //допустима и короткая запись
+                //arrayDlgs[i] = RandNumber;
             }
 
             //создаём анонимный метод(делегат)
-            AverageNumbersDlg averageDlg = delegate (NumberDlg[] arrayNumsDlgs)
+            AverageNumbersDlg averageDlg = delegate (NumberDlg[] arrayNumbersDlgs)
             {
                 //накопительная переменная
                 long averageNumbers = 0;
 
-                for (int i = 0; i < arrayNumsDlgs.Length; i++)
+                for (int i = 0; i < arrayNumbersDlgs.Length; i++)
                 {
-                    averageNumbers += arrayNumsDlgs[i]();
+                    averageNumbers += arrayNumbersDlgs[i]();
                 }
                 //возвращаем среднееарифметическое
-                return (int)(averageNumbers /= arrayNumsDlgs.Length);
+                return (int)(averageNumbers /= arrayNumbersDlgs.Length);
             };
 
             //результат вызова анонимного метода (делегата)
