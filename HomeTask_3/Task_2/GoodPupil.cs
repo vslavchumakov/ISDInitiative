@@ -10,9 +10,8 @@ namespace Task_2
         /// User constructor
         /// </summary>
         /// <param name="name">Name of the pupil</param>
-        public GoodPupil(string name)
+        public GoodPupil(string name):base(name)
         {
-            this.name = name;
         }
 
         // Override methods from base class Pupil

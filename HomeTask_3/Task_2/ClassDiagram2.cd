@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Task_2.Pupil">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAABAAgAAAEAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Pupil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task_2.GoodPupil">
+    <Position X="1" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAABAAgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>GoodPupil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task_2.ExcelentPupil">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAABAAgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>ExcelentPupil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task_2.ClassRoom">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAQQgAAAAABAAgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>ClassRoom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task_2.BadPupil">
+    <Position X="5.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAABAAgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>BadPupil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
