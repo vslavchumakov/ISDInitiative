@@ -52,7 +52,11 @@ namespace Task_3
 
                 for (int i = 0; i < arrayNumbersDlgs.Length; i++)
                 {
-                    averageNumbers += arrayNumbersDlgs[i]();
+                    //проверка, что делегат содержит ссылку на метод, не null
+                    if (arrayDlgs[i] != null)
+                    {
+                        averageNumbers += arrayNumbersDlgs[i]();
+                    }
                 }
                 //возвращаем среднееарифметическое
                 return (int)(averageNumbers /= arrayNumbersDlgs.Length);
