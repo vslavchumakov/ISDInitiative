@@ -34,15 +34,22 @@ namespace Task_5
 
             //добавляем в коллекцию 1 автомобиль базового класса Car для тестирования перевыделения памяти
             cars.Add("Audi TT", 2013);
-
+            
             //выводим в консоль информацию о коллекции
-            Console.WriteLine(cars);
+            //перебор элементов массива в цикле по индексу
+            Console.WriteLine("index");
+            for (int i = 0; i < cars.Count; i++)
+            {
+                Console.WriteLine(cars[i]);
+            }
+            Console.WriteLine("\n");
 
             //очищаем коллекцию
             cars.Clear();
 
             //выводим в консоль информацию о коллекции
             Console.WriteLine(cars);
+            Console.ReadKey();
         }
     }
 }
