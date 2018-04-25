@@ -14,30 +14,45 @@ namespace Task_8
         /// <summary>
         /// кол-во
         /// </summary>
-        private int quantity = 10; //откуда его брать?
+        private static int quantity;
+
+        /// <summary>
+        /// методы доступа с полю quality, то есть свой-ства
+        /// </summary>
+        public int Quality
+        {
+            get => quantity;
+            set => quantity = value;
+        }
 
         /// <summary>
         /// артикль
         /// </summary>
-        private static string article = "02459UKR";
+        private static string article;
+
+        /// <summary>
+        /// методы доступа с полю article, то есть свой-ства
+        /// </summary>
+        public string Article
+        {
+            get => article;
+            set => article = value;
+        }
 
         /// <summary>
         /// стоимость
         /// </summary>
-        //public readonly int account;
-        public int Account { get;}
+        public int Account { get; private set; }
 
         /// <summary>
         /// заказчик
         /// </summary>
-        //public readonly string customer;
-        public string Customer { get;}
+        public string Customer { get; private set; }
 
         /// <summary>
         /// поставщик
         /// </summary>
-        //public readonly string provider;
-        public string Provider { get; }
+        public string Provider { get; private set; }
 
         /// <summary>
         /// конструктор
@@ -47,9 +62,9 @@ namespace Task_8
         /// <param name="provider">поставщик</param>
         public Invoice(int account, string customer, string provider)
         {
-            this.Account = account;
-            this.Customer = customer;
-            this.Provider = provider;
+            Account = account;
+            Customer = customer;
+            Provider = provider;
         }
 
         /// <summary>
@@ -57,6 +72,28 @@ namespace Task_8
         /// </summary>
         /// <param name="withNDS">учитывание НДС, true-учитывает ндс false- не учитывает НДС</param>
         /// <returns>стоимость заказа</returns>
-        public double Culculation(bool withNDS = true) => (withNDS ? 1.2 : 1) * Account * quantity;
+        public double Culculation(bool withNDS = true)
+        {
+            double price = 0;//цена единицы товара
+            switch (Article)//свитч стоимости товара по артиклю
+            {
+                case "ASE1254":
+                    price = 12.5;
+                    break;
+                case "OPE4324":
+                    price = 7.75;
+                    break;
+                case "PLE8745":
+                    price = 7.75;
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("---error article---");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    break;
+            }
+
+            return (withNDS ? 1.2 : 1) * Quality * price;
+        }
     }
 }
