@@ -45,7 +45,7 @@ namespace Task_3
             }
 
             //создаём анонимный метод(делегат)
-            AverageNumbersHandler averageDlg = delegate (NumberHandler[] arrayNumberHandlers)
+            AverageNumbersHandler averageHandler = delegate (NumberHandler[] arrayNumberHandlers)
             {
                 //накопительная переменная
                 long averageNumbers = 0;
@@ -61,9 +61,34 @@ namespace Task_3
                 //возвращаем среднееарифметическое
                 return (int)(averageNumbers /= arrayNumberHandlers.Length);
             };
-
+            
             //результат вызова анонимного метода (делегата)
-            Console.WriteLine("Average int is: " + averageDlg(arrayNumbers));
+            Console.WriteLine("Use delegate, Average int is: " + averageHandler(arrayNumbers));
+
+
+
+            //--------------------------------------------------------------------------------------------------
+            //вариант 2 - создаём анонимный метод(делегат Func<NumberHandler[],int>)
+            Func<NumberHandler[],int> averageFunc = delegate (NumberHandler[] arrayNumberHandlers)
+            {
+                //накопительная переменная
+                long averageNumbers = 0;
+
+                for (int i = 0; i < arrayNumberHandlers.Length; i++)
+                {
+                    //проверка, что делегат содержит ссылку на метод, не null
+                    if (arrayNumbers[i] != null)
+                    {
+                        averageNumbers += arrayNumberHandlers[i]();
+                    }
+                }
+                //возвращаем среднееарифметическое
+                return (int)(averageNumbers /= arrayNumberHandlers.Length);
+            };
+            
+            //результат вызова анонимного метода (делегата)
+            Console.WriteLine("Use Func<T[],int> Average int is: " + averageFunc(arrayNumbers));
+            
             Console.ReadKey();
         }
     }
