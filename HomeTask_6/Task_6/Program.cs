@@ -17,24 +17,11 @@ namespace Task_6
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             Info(new Worker(PositionHoursEnum.Doctor, "Gregory", "House"), 999);
             Info(new Worker(PositionHoursEnum.LaboratoryAssistant, "Emma", "Smith"), 500);
             Info(new Worker(PositionHoursEnum.Cook, "John", "Watson"), 700);
             Info(new Worker(PositionHoursEnum.Nurse, "Tom", "Li"), 1000);
             Thread.Sleep(4000);
-=======
-=======
->>>>>>> b1d087b7c0ef728cd5e86420bbd3c43442d53017
-            Info(new Worker(PositionHours.Doctor, "Gregory", "House"), 999);
-            Info(new Worker(PositionHours.LaboratoryAssistant, "Emma", "Smith"), 500);
-            Info(new Worker(PositionHours.Cook, "John", "Watson"), 700);
-            Info(new Worker(PositionHours.Nurse, "Tom", "Li"), 1000);
-<<<<<<< HEAD
->>>>>>> b1d087b7c0ef728cd5e86420bbd3c43442d53017
-=======
->>>>>>> b1d087b7c0ef728cd5e86420bbd3c43442d53017
         }
 
         /// <summary>
