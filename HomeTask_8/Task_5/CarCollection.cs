@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Task_5
 {
     /// <summary>
-    /// класс обобщенной коллекции автомобилей
+    /// класс обобщенная коллекция автомобилей
     /// </summary>
-    /// <typeparam name="T">Тип элемента коллекции</typeparam>
+    /// <typeparam name="T">Тип элементов коллекции</typeparam>
     public class CarCollection<T> where T : Car, new()//ограничение:
                                                       //тип должен быть Car или его наследником
                                                       //тип должен иметь открытый конструктор без параметров
@@ -25,7 +25,7 @@ namespace Task_5
         const int countResize = 2;
 
         /// <summary>
-        /// колличество добавленных автомобилей
+        /// колличество добавленных элементов
         /// </summary>
         int count = 0;
 
@@ -39,24 +39,14 @@ namespace Task_5
         /// <summary>
         /// метод добавления элемента в коллекцию
         /// </summary>
-        /// <param name="element">добавляемый экзкмпляр коллекции</param>
+        /// <param name="element">добавляемый элемента коллекции</param>
         public void Add(T element)
         {
             //если в коллекции добавлено элементов меньше чем вместительность, добавляем новый элемент,
             //иначе перевыделяем память
-            if (count >= Elements.Length)
+            if (Count >= Elements.Length)
             {
-                T[] NewElements = new T[Elements.Length + countResize];
-                for (int i = 0; i < Elements.Length; i++)
-                {
-                    NewElements[i] = Elements[i];
-                }
-                Elements = NewElements;
-
-                //отладка
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                Console.WriteLine("add element-memory realloc");
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Resize();
             }
             Elements[count++] = element;
         }
@@ -64,14 +54,14 @@ namespace Task_5
         /// <summary>
         /// метод добавления элемента в коллекцию
         /// </summary>
-        /// <param name="element">добавляемый экзкмпляр коллекции</param>
+        /// <param name="element">добавляемый элемент коллекции</param>
         public void Add(string name, int year)
         {
             Add(new T() { Name = name, YearCreation = year });
         }
 
         /// <summary>
-        /// свойство с методом доступа get для получения фактического колличества экзкмпляров коллекции
+        /// свойство с методом доступа get для получения фактического колличества элементов коллекции
         /// </summary>
         public int Count
         {
@@ -79,12 +69,133 @@ namespace Task_5
         }
 
         /// <summary>
-        /// метод очищенния массива
+        /// метод очищенния коллекции
         /// </summary>
         public void Clear()
         {
             Array.Clear(Elements, 0, Count);
             count = 0;
+        }
+
+        /// <summary>
+        /// получение индекса элемента
+        /// </summary>
+        /// <param name="element">элемент, который ищим</param>
+        /// <returns>индекс элемента в коллекции</returns>
+        public int IndexOf(T element)
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                if (element == Elements[i])
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        /// <summary>
+        /// метод проверяет принадлежность объекта коллекции
+        /// </summary>
+        /// <param name="element">элемент который хотим найти</param>
+        /// <returns>true- этот элемент пренадлежит коллекции, false- такого элемента в коллекции нет</returns>
+        public bool Contains(T element)
+        {
+            return IndexOf(element) >= 0;
+        }
+
+        /// <summary>
+        /// удаление элемента по индексу
+        /// </summary>
+        /// <param name="index">индекс элемента, который нужно удалить</param>
+        public void RemoveAt(int index)
+        {
+            //если индекс находится за диапозонами коллекции
+            if (index < 0 || index > Count - 1)
+            {
+                return;
+            }
+            else
+            {
+                //передвигаем элементы, освобождаем место
+                for (int i = index; i < Count; i++)
+                {
+                    Elements[i] = Elements[i + 1];
+                }
+                count--;
+            }
+        }
+
+        /// <summary>
+        /// метод вставки элемента
+        /// </summary>
+        /// <param name="index">индекс для вставки</param>
+        /// <param name="element">новый елемент коллекции</param>
+        public void Insert(int index, T element)
+        {
+            //если индекс назодится за пределами коллекции
+            if (index < 0 || index > Count)
+            {
+                return;
+            }
+
+            //добавление в конец
+            if (index == Count)
+            {
+                Add(element);
+            }
+            //добавление в середину
+            else
+            {
+                //если нужно, перевыделяем память
+                if (Count >= Elements.Length)
+                {
+                    Resize();
+                }
+                //передвигаем элементы, освобождаем место
+                for (int i = Count; i >= index; i--)
+                {
+                    Elements[i] = Elements[i - 1];
+                }
+
+                //вставляем элемент
+                Elements[index] = element;
+                count++;
+            }
+        }
+
+        /// <summary>
+        /// метод удаления по ссылке
+        /// </summary>
+        /// <param name="element">ссылка на элемент, который нужно удалить из коллекции</param>
+        public void Remove(T element)
+        {
+            for(int i = 0; i < Count; i++)
+            {
+                if (element == Elements[i])
+                {
+                    RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// метод перевыделения памяти
+        /// </summary>
+        private void Resize()
+        {
+            T[] NewElements = new T[Elements.Length + countResize];
+            for (int i = 0; i < Elements.Length; i++)
+            {
+                NewElements[i] = Elements[i];
+            }
+            Elements = NewElements;
+
+            //отладка
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("add element-memory realloc");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         /// <summary>

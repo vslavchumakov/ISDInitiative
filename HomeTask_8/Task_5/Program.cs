@@ -22,19 +22,19 @@ namespace Task_5
             CarCollection<Car> cars = new CarCollection<Car>();
 
             //создаём экземпляр класса Сrossover, производного от Car
-            Сrossover сrossover = new Сrossover("Nissan", 2016, 18.5);
-            cars.Add(сrossover);
+            Сrossover crossover = new Сrossover("Nissan", 2016, 18.5);
+            cars.Add(crossover);
 
             //создаём экземпляр класса RacingCar, производного от Car
             RacingCar racingCar = new RacingCar("Lamborghini 350GT", 1967, 254);
             cars.Add(racingCar);
-            
+
             //выводим в консоль информацию о коллекции
             Console.WriteLine(cars);
 
             //добавляем в коллекцию 1 автомобиль базового класса Car для тестирования перевыделения памяти
             cars.Add("Audi TT", 2013);
-            
+
             //выводим в консоль информацию о коллекции
             //перебор элементов массива в цикле по индексу
             Console.WriteLine("index");
@@ -44,11 +44,61 @@ namespace Task_5
             }
             Console.WriteLine("\n");
 
-            //очищаем коллекцию
-            cars.Clear();
+            // тест метода Contains
+            Console.WriteLine("Contains (Nissan, 2016, 18.5): " + cars.Contains(crossover));
 
+            //проверяем на автомобиль, которого нет в коллекции
+            Car kia = new Car("Kia", 2018);
+            Console.WriteLine("Contains (Kia, 2018): " + cars.Contains(kia) + "\n");
+
+            //тест Insert
+            Console.WriteLine("test Insert (kia)\n");
+            cars.Insert(1, kia);
+            Console.WriteLine(cars);
+
+            //тест IndexdOf
+            Console.WriteLine("test Insert (Lamborhgini): " + cars.IndexOf(racingCar) + "\n");
+
+            //добавляем машины по не корректным индексам
+            Console.WriteLine("Invalid index Inserted");
+            cars.Insert(-10, new Car());
+            cars.Insert(96, new Car());
+            //выводим информацию о коллекции
+            Console.WriteLine(cars);
+
+            //проверка вставки в середину с перевыделением памяти
+            cars.Insert(3, new RacingCar("Toyota", 2015, 265));
+
+            //проверка удаление по индексу
+            Console.WriteLine("RemoveAt (index 2):");
+            cars.RemoveAt(2);
+            //выводим информацию о коллекции
+            Console.WriteLine(cars);
+
+            //проверка удаление по индексу
+            Console.WriteLine("RemoveAt (index -1):");
+            cars.RemoveAt(-1);
+            //выводим информацию о коллекции
+            Console.WriteLine(cars);
+
+            //проверка удаление по ссылке
+            Console.WriteLine("Remove (kia):");
+            cars.Remove(kia);
+            //выводим информацию о коллекции
+            Console.WriteLine(cars);
+
+            //проверка удаление по ссылке
+            Console.WriteLine("Remove (Nissan):");
+            cars.Remove(crossover);
+            //выводим информацию о коллекции
+            Console.WriteLine(cars);
+
+            //очищаем коллекцию
+            Console.WriteLine("Test Clear");
+            cars.Clear();
             //выводим в консоль информацию о коллекции
             Console.WriteLine(cars);
+
             Console.ReadKey();
         }
     }
