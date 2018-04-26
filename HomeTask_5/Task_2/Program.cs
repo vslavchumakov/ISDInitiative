@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Task_2
 {
@@ -29,6 +30,22 @@ namespace Task_2
                 arr[j + 1] = buffer;
             }
         }
+        /// <summary>
+        /// Расширить программу из задачи 2. 
+        /// Расширение должно принимать bool 
+        /// параметер который задает 
+        /// направление сортировки
+        /// </summary>
+        /// <param name="array">ссылка на тип, к которому добавляем метод расширения</param>
+        /// <param name="order">параметр, который указивает направление сортировки
+        /// true - ascending, falce - descending</param>
+        public static void ToSortInOrder(this int[] array, bool order = true)
+        {
+            if (order)
+                Array.Sort<int>(array, new Comparison<int>((i1, i2) => i2.CompareTo(i1)));
+            else
+                Array.Sort<int>(array, new Comparison<int>((i1, i2) => i1.CompareTo(i2)));
+        }
     }
 
     class Program
@@ -48,14 +65,27 @@ namespace Task_2
 
         static void Main(string[] args)
         {
-            int[] ints = new int[] { 12, 8, 45, 1, -9, 3, -99};
-            Console.Write("Array of ints: ");
-            ShowArray(ints);
+            int[] integers = new int[] { 12, 8, 45, 1, -9, 3, -99};
+            Console.Write("Array of integers: ");
+            ShowArray(integers);
 
             //сортируем массив
-            ints.ToSort();
-            Console.Write("Sorted array of ints: ");
-            ShowArray(ints);
+            integers.ToSort();
+            Console.Write("Sorted array of integers: ");
+            ShowArray(integers);
+
+            Thread.Sleep(3500);
+            Console.WriteLine("");
+            //sorting again
+
+            integers.ToSortInOrder();
+            Console.Write("Sorted array of integer ascending: ");
+            ShowArray(integers);
+
+            integers.ToSortInOrder(false);
+            Console.Write("Sorted array of integer dascending: ");
+            ShowArray(integers);
+
             Console.ReadKey();
         }
     }
