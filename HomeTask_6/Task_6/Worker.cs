@@ -14,7 +14,7 @@ namespace Task_6
         /// <summary>
         /// должностное колличество часов в месяц
         /// </summary>
-        public PositionHoursEnum PositionHours { get; set; }
+        public PositionHours PositionHours { get; set; }
 
         /// <summary>
         /// имя сотрудника
@@ -32,7 +32,7 @@ namespace Task_6
         /// <param name="positionHours">должностные нормативы</param>
         /// <param name="name">Имя</param>
         /// <param name="surname">Фамилия</param>
-        public Worker(PositionHoursEnum positionHours, string name, string surname)
+        public Worker(PositionHours positionHours, string name, string surname)
         {
             PositionHours = positionHours;
             Name = name;
@@ -47,7 +47,7 @@ namespace Task_6
         {
             StringBuilder data = new StringBuilder();
             data.Append(Name + " " + Surname + " \n");
-            data.Append("Position: " + Enum.GetName(typeof(PositionHoursEnum), PositionHours)+ "\n");
+            data.Append("Position: " + Enum.GetName(typeof(PositionHours), PositionHours)+ "\n");
             data.Append("Need hours a month"+ ": " + (int)PositionHours);
             return data.ToString();
         }

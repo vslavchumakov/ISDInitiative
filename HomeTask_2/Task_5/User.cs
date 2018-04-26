@@ -62,11 +62,11 @@ namespace HomeWork_2_5
         public override string ToString()
         {
             StringBuilder user = new StringBuilder();
-            user.Append("Логин: " + Login + "\n");
-            user.Append("Имя: " + Name + "\n");
-            user.Append("Фамилия: " +  Surname + "\n");
-            user.Append("Возраст: " + Age + "\n");
-            user.Append("Дата регистрации: " + Date + "\n");
+            user.Append("Login: " + Login + "\n");
+            user.Append("Name: " + Name + "\n");
+            user.Append("Surname: " +  Surname + "\n");
+            user.Append("Age: " + Age + "\n");
+            user.Append("Registed: " + Date + "\n");
             return user.ToString();
         }
     }

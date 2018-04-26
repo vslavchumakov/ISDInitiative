@@ -11,32 +11,32 @@ namespace Task_4
         /// <summary>
         /// координата Х
         /// </summary>
-        private int x;
+        private int _x;
 
         /// <summary>
         /// координата У
         /// </summary>
-        private int y;
+        private int _y;
 
         /// <summary>
         /// имя объекта
         /// </summary>
-        private string name;
+        private string _name;
 
         /// <summary>
         /// св-во возвращает координату Х
         /// </summary>
-        public int X { get => x; }
+        public int X { get => _x; }
 
         /// <summary>
         /// св-во возвращает координату У
         /// </summary>
-        public int Y { get => y; }
+        public int Y { get => _y; }
 
         /// <summary>
         /// св-во возвращает имя объекта
         /// </summary>
-        public string Name { get => name; }
+        public string Name { get => _name; }
 
         /// <summary>
         /// конструктор
@@ -46,9 +46,9 @@ namespace Task_4
         /// <param name="name">имя</param>
         public Point(int x, int y, string name)
         {
-            this.x = x;
-            this.y = y;
-            this.name = name;
+            this._x = x;
+            this._y = y;
+            this._name = name;
         }
     }
 }

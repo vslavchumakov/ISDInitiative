@@ -18,18 +18,13 @@ namespace Task_2_5
         private static int GetDay()
         {
             string enter;
-            int min = 1;
-            int max = 7;
             while (true)
             {
                 Console.Write("Введите число от 1 до 7: ");
                 enter = Console.ReadLine();
                 if (int.TryParse(enter, out int number))
                 {
-                    if (number >= min && number <= max)
-                    {
-                        return number;
-                    }
+                    return number;
                 }
             };
         }
@@ -59,6 +54,9 @@ namespace Task_2_5
                     break;
                 case 7:
                     Console.WriteLine("Воскрксенье");
+                    break;
+                default:
+                    Console.WriteLine("Такого дня нет!");
                     break;
             }
             Console.ReadKey();
