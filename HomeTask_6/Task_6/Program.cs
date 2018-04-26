@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Task_6
 {
@@ -16,23 +17,32 @@ namespace Task_6
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             Info(new Worker(PositionHoursEnum.Doctor, "Gregory", "House"), 999);
             Info(new Worker(PositionHoursEnum.LaboratoryAssistant, "Emma", "Smith"), 500);
             Info(new Worker(PositionHoursEnum.Cook, "John", "Watson"), 700);
             Info(new Worker(PositionHoursEnum.Nurse, "Tom", "Li"), 1000);
+            Thread.Sleep(4000);
+=======
+            Info(new Worker(PositionHours.Doctor, "Gregory", "House"), 999);
+            Info(new Worker(PositionHours.LaboratoryAssistant, "Emma", "Smith"), 500);
+            Info(new Worker(PositionHours.Cook, "John", "Watson"), 700);
+            Info(new Worker(PositionHours.Nurse, "Tom", "Li"), 1000);
+>>>>>>> b1d087b7c0ef728cd5e86420bbd3c43442d53017
         }
 
         /// <summary>
         /// метод выводит информацию о сотруднике
         /// </summary>
-        /// <param name="worker1"></param>
+        /// <param name="worker"></param>
         /// <param name="hours"></param>
-        private static void Info(Worker worker1, int hours)
+        private static void Info(Worker worker, int hours)
         {
-            Console.WriteLine(worker1);
+            Console.WriteLine(worker);
             Console.WriteLine("Count hours worked: " + hours);
-            Console.WriteLine("Get a bonus: " + Accauntant.AskForBonus(worker1, hours));
+            Console.WriteLine("Get a bonus: " + Accauntant.AskForBonus(worker, hours));
             Console.WriteLine("------------------------------\n");
         }
+        
     }
 }
