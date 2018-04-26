@@ -17,7 +17,7 @@ namespace Task_5
         /// <summary>
         /// массив элементов 
         /// </summary>
-        T[] Elements = new T[countResize];
+        T[] _elements = new T[countResize];
 
         /// <summary>
         /// шаг увеличения коллекции, принимаем 2 для тестирования добавления элементов в коллекцию
@@ -27,14 +27,14 @@ namespace Task_5
         /// <summary>
         /// колличество добавленных элементов
         /// </summary>
-        int count = 0;
+        int _count = 0;
 
         /// <summary>
         /// определяем индексатор для возможности перебора элементов коллекции с помощью []
         /// </summary>
         /// <param name="i">индекс</param>
         /// <returns></returns>
-        public T this[int i] => Elements[i];
+        public T this[int i] => _elements[i];
 
         /// <summary>
         /// метод добавления элемента в коллекцию
@@ -44,11 +44,11 @@ namespace Task_5
         {
             //если в коллекции добавлено элементов меньше чем вместительность, добавляем новый элемент,
             //иначе перевыделяем память
-            if (Count >= Elements.Length)
+            if (Count >= _elements.Length)
             {
                 Resize();
             }
-            Elements[count++] = element;
+            _elements[_count++] = element;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Task_5
         /// </summary>
         public int Count
         {
-            get => count;
+            get => _count;
         }
 
         /// <summary>
@@ -73,8 +73,8 @@ namespace Task_5
         /// </summary>
         public void Clear()
         {
-            Array.Clear(Elements, 0, Count);
-            count = 0;
+            Array.Clear(_elements, 0, Count);
+            _count = 0;
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Task_5
         {
             for (int i = 0; i < Count; i++)
             {
-                if (element == Elements[i])
+                if (element == _elements[i])
                 {
                     return i;
                 }
@@ -120,9 +120,9 @@ namespace Task_5
                 //передвигаем элементы, освобождаем место
                 for (int i = index; i < Count; i++)
                 {
-                    Elements[i] = Elements[i + 1];
+                    _elements[i] = _elements[i + 1];
                 }
-                count--;
+                _count--;
             }
         }
 
@@ -148,19 +148,19 @@ namespace Task_5
             else
             {
                 //если нужно, перевыделяем память
-                if (Count >= Elements.Length)
+                if (Count >= _elements.Length)
                 {
                     Resize();
                 }
                 //передвигаем элементы, освобождаем место
                 for (int i = Count; i >= index; i--)
                 {
-                    Elements[i] = Elements[i - 1];
+                    _elements[i] = _elements[i - 1];
                 }
 
                 //вставляем элемент
-                Elements[index] = element;
-                count++;
+                _elements[index] = element;
+                _count++;
             }
         }
 
@@ -172,7 +172,7 @@ namespace Task_5
         {
             for(int i = 0; i < Count; i++)
             {
-                if (element == Elements[i])
+                if (element == _elements[i])
                 {
                     RemoveAt(i);
                     return;
@@ -185,12 +185,12 @@ namespace Task_5
         /// </summary>
         private void Resize()
         {
-            T[] NewElements = new T[Elements.Length + countResize];
-            for (int i = 0; i < Elements.Length; i++)
+            T[] NewElements = new T[_elements.Length + countResize];
+            for (int i = 0; i < _elements.Length; i++)
             {
-                NewElements[i] = Elements[i];
+                NewElements[i] = _elements[i];
             }
-            Elements = NewElements;
+            _elements = NewElements;
 
             //отладка
             Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -207,7 +207,7 @@ namespace Task_5
             StringBuilder data = new StringBuilder("Count elements: " + Count + "\n");
             for (int i = 0; i < Count; i++)
             {
-                data.Append(Elements[i]);
+                data.Append(_elements[i]);
                 data.Append("\n");
             }
             data.Append("\n");

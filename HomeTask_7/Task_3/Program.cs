@@ -15,16 +15,16 @@ namespace Task_3
     {
         //делегат, принимающий в качестве аргументов массив делегатов, 
         //и возвращает среднее арифметическое возвращаемых значений методов сообщенных с делегатами в массиве.
-        delegate int AverageNumbersDlg(NumberDlg[] delegates);
+        delegate int AverageNumbersHandler(NumberHandler[] delegates);
 
         //делегат, хранящий метод, генерирующий случайное значение типа int
-        delegate int NumberDlg();
+        delegate int NumberHandler();
 
         /// <summary>
         /// метод, ассоциированный с делегатом, генерирующий случайное число int
         /// </summary>
         /// <returns>cлучайное число int</returns>
-        static int RandNumber()
+        static int NumberHandlerMethod()
         {
             Random random = new Random();
             return random.Next(int.MinValue, int.MaxValue);
@@ -34,36 +34,36 @@ namespace Task_3
         {
             //создаём массив делегатов
             int count = 5;
-            NumberDlg[] arrayDlgs = new NumberDlg[count];
+            NumberHandler[] arrayNumbers = new NumberHandler[count];
 
             //определяем методы, которые будут хранить делегаты
-            for (int i = 0; i < arrayDlgs.Length; i++)
+            for (int i = 0; i < arrayNumbers.Length; i++)
             {
-                arrayDlgs[i] = new NumberDlg(RandNumber);
+                arrayNumbers[i] = new NumberHandler(NumberHandlerMethod);
                 //допустима и короткая запись
                 //arrayDlgs[i] = RandNumber;
             }
 
             //создаём анонимный метод(делегат)
-            AverageNumbersDlg averageDlg = delegate (NumberDlg[] arrayNumbersDlgs)
+            AverageNumbersHandler averageDlg = delegate (NumberHandler[] arrayNumberHandlers)
             {
                 //накопительная переменная
                 long averageNumbers = 0;
 
-                for (int i = 0; i < arrayNumbersDlgs.Length; i++)
+                for (int i = 0; i < arrayNumberHandlers.Length; i++)
                 {
                     //проверка, что делегат содержит ссылку на метод, не null
-                    if (arrayDlgs[i] != null)
+                    if (arrayNumbers[i] != null)
                     {
-                        averageNumbers += arrayNumbersDlgs[i]();
+                        averageNumbers += arrayNumberHandlers[i]();
                     }
                 }
                 //возвращаем среднееарифметическое
-                return (int)(averageNumbers /= arrayNumbersDlgs.Length);
+                return (int)(averageNumbers /= arrayNumberHandlers.Length);
             };
 
             //результат вызова анонимного метода (делегата)
-            Console.WriteLine("Average int is: " + averageDlg(arrayDlgs));
+            Console.WriteLine("Average int is: " + averageDlg(arrayNumbers));
             Console.ReadKey();
         }
     }

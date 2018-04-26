@@ -14,29 +14,29 @@ namespace Task_8
         /// <summary>
         /// кол-во
         /// </summary>
-        private static int quantity;
+        private static int _quantity;
 
         /// <summary>
         /// методы доступа с полю quality, то есть свой-ства
         /// </summary>
         public int Quality
         {
-            get => quantity;
-            set => quantity = value;
+            get => _quantity;
+            set => _quantity = value;
         }
 
         /// <summary>
         /// артикль
         /// </summary>
-        private static string article;
+        private static string _article;
 
         /// <summary>
         /// методы доступа с полю article, то есть свой-ства
         /// </summary>
         public string Article
         {
-            get => article;
-            set => article = value;
+            get => _article;
+            set => _article = value;
         }
 
         /// <summary>

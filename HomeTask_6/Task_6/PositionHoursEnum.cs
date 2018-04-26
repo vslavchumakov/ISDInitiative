@@ -9,7 +9,7 @@ namespace Task_6
     /// <summary>
     /// перечисление содержит константы часов, которые должен отработать сотридник определённой должности
     /// </summary>
-    public enum PositionHoursEnum
+    public enum PositionHours
     {
         /// <summary>
         /// Лаборант
