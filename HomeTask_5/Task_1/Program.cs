@@ -11,19 +11,45 @@ namespace Task_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Input 1-t number:");
-            double num1 = double.Parse(Console.ReadLine());
+            string message1 = "Input 1-t number:";
+            string message2 = "Input 2-d number:";
+            string message3 = "Choose operation:";
 
-            Console.WriteLine("Input 2-d number:");
-            double num2 = double.Parse(Console.ReadLine());
+            double num1 = InputNumber(message1);
+            double num2 = InputNumber(message2);
+            string operation = InputOperation(message3);
 
-            Console.WriteLine("Choose operation:");
-            string operation = Console.ReadLine();
             double result = Calculator.Calculate(num1, num2, operation);
 
             Console.WriteLine("Result:{0}", result);
-       
             Console.ReadKey();
+        }
+
+        private static string InputOperation(string message)
+        {
+            string operation;
+          
+            Regex regex = new Regex("[-+*/]");
+            do
+            {
+                Console.WriteLine(message);
+                operation = Console.ReadLine();
+
+            } while (!regex.IsMatch(operation));
+
+            return operation;
+        }
+
+        static private double InputNumber(string message)
+        {
+            string choice = null;
+            double number = 0;
+            do
+            {
+                Console.WriteLine(message);
+                choice = Console.ReadLine();
+            } while (!double.TryParse(choice, out number));
+            return number;
         }
     }
 }
