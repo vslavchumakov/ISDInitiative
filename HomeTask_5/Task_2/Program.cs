@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using  Task_3;
 
 namespace Task_2
 {
@@ -31,48 +32,33 @@ namespace Task_2
             }
         }
         /// <summary>
-        /// Расширить программу из задачи 2. 
-        /// Расширение должно принимать bool 
-        /// параметер который задает 
-        /// направление сортировки
+        /// метод выводит в консоль массив
         /// </summary>
-        /// <param name="array">ссылка на тип, к которому добавляем метод расширения</param>
-        /// <param name="order">параметр, который указивает направление сортировки
-        /// true - ascending, falce - descending</param>
-        public static void ToSortInOrder(this int[] array, bool order = true)
+        /// <param name="ints">массив целочисленных значений</param>
+        public static void ShowArray(this int[] ints)
         {
-            if (order)
-                Array.Sort<int>(array, new Comparison<int>((i1, i2) => i2.CompareTo(i1)));
-            else
-                Array.Sort<int>(array, new Comparison<int>((i1, i2) => i1.CompareTo(i2)));
+            for (int i = 0; i < ints.Length; i++)
+            {
+                Console.Write(ints[i] + " ");
+            }
+            Console.WriteLine();
         }
     }
 
     class Program
     {
-        /// <summary>
-        /// метод выводит в консоль массив
-        /// </summary>
-        /// <param name="ints">массив целочисленных значений</param>
-        private static void ShowArray(int[] ints)
-        {
-            for (int i = 0; i < ints.Length; i++)
-            {
-                Console.Write(ints[i]+" ");
-            }
-            Console.WriteLine();
-        }
+        
 
         static void Main(string[] args)
         {
             int[] integers = new int[] { 12, 8, 45, 1, -9, 3, -99};
             Console.Write("Array of integers: ");
-            ShowArray(integers);
+            integers.ShowArray();
 
             //сортируем массив
             integers.ToSort();
             Console.Write("Sorted array of integers: ");
-            ShowArray(integers);
+            integers.ShowArray();
 
             Thread.Sleep(3500);
             Console.WriteLine("");
@@ -80,11 +66,11 @@ namespace Task_2
 
             integers.ToSortInOrder();
             Console.Write("Sorted array of integer ascending: ");
-            ShowArray(integers);
+            integers.ShowArray();
 
             integers.ToSortInOrder(false);
             Console.Write("Sorted array of integer dascending: ");
-            ShowArray(integers);
+            integers.ShowArray();
 
             Console.ReadKey();
         }
