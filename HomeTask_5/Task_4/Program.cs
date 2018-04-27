@@ -29,6 +29,9 @@ namespace Task_4
             // Example for Method Replace
             Console.WriteLine(@string.ExtensionReplace("world", "people"));
             Console.WriteLine(@string.ExtensionReplace("CLR", "C#"));
+
+            //Delay
+            Console.ReadKey();
         }
     }
 }
