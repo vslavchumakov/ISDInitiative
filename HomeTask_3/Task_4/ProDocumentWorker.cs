@@ -9,9 +9,9 @@ namespace Task_4
     /// <summary>
     /// платная версия программы, доступно редактирование
     /// </summary>
-    public class ProDocumentWorker : DocumentWorker
+    class ProDocumentWorker : DocumentWorker
     {
-        public override void EditDocument()
+        public sealed override void EditDocument()
         {
             Console.WriteLine("Документ отредактирован");
         }

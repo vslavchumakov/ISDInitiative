@@ -10,9 +10,9 @@ namespace Task_4
     /// <summary>
     /// платная версия программы, доступны все опции
     /// </summary>
-    public class ExpertDocumentWorker : ProDocumentWorker
+    class ExpertDocumentWorker : ProDocumentWorker
     {
-        public override void SaveDocument()
+        public sealed override void SaveDocument()
         {
             Console.WriteLine("Документ сохранен в новом формате");
         }

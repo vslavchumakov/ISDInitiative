@@ -9,7 +9,7 @@ namespace Task_4
     /// <summary>
     /// базовый класс, бесплатная версия
     /// </summary>
-    public class DocumentWorker
+    class DocumentWorker
     {
         public void OpenDocument()
         {
