@@ -17,10 +17,10 @@ namespace Task_6
     {
         static void Main(string[] args)
         {
-            Info(new Worker(PositionHoursEnum.Doctor, "Gregory", "House"), 999);
-            Info(new Worker(PositionHoursEnum.LaboratoryAssistant, "Emma", "Smith"), 500);
-            Info(new Worker(PositionHoursEnum.Cook, "John", "Watson"), 700);
-            Info(new Worker(PositionHoursEnum.Nurse, "Tom", "Li"), 1000);
+            Info(new Worker(PositionHours.Doctor, "Gregory", "House"), 999);
+            Info(new Worker(PositionHours.LaboratoryAssistant, "Emma", "Smith"), 500);
+            Info(new Worker(PositionHours.Cook, "John", "Watson"), 700);
+            Info(new Worker(PositionHours.Nurse, "Tom", "Li"), 1000);
             Thread.Sleep(4000);
         }
 
