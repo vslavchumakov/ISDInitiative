@@ -1,0 +1,31 @@
+﻿<Window x:Class="readFiles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:readFiles"
+        mc:Ignorable="d"
+        Title="Document Worker" Height="600" Width="400"
+            WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Thickness x:Key="margin">8</Thickness>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Click="ButtonSaveClick" Name="buttonSave" Grid.Column="0" Content="Save" IsEnabled="False"  Margin="{StaticResource margin}"></Button>
+            <Button Grid.Row="0" Click="ButtonOpenClick" Grid.Column="2" Content="Open"  Margin="{StaticResource margin}"></Button>
+        </Grid>
+        <GroupBox Header="Inner Text Document" Grid.Row="0">
+            <TextBox Name="innerDocumentText" TextChanged="InnerDocumentText_TextChanged"  TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"></TextBox>
+        </GroupBox>
+    </Grid>
+</Window>
