@@ -69,13 +69,14 @@ namespace Task_2
         // Declares a delegate for a method that takes in 2 doubles and returns a double.
         delegate double OperationDelegate(double firstNumber, double secondNumber);
 
-
-        static void Main(string[] args)
+        /// <summary>
+        /// Shows result of operation
+        /// </summary>
+        /// <param name="num1">first number</param>
+        /// <param name="num2">second number</param>
+        /// <param name="operation">operation</param>
+        static void ShowOperationResult(double num1, double num2, string operation)
         {
-            double num1 = InputNumber("Enter first number: ");
-            double num2 = InputNumber("Enter second number: ");
-            string operation = InputOperation("Enter operation, choose from {+, -, *, /}: ");
-
             OperationDelegate op = null;
             switch (operation)
             {
@@ -101,6 +102,14 @@ namespace Task_2
             // If we dont return result of operation, op = null => Exception
             if (op != null)
                 Console.WriteLine($"Result = {op(num1, num2)}.");
+        }
+
+        static void Main(string[] args)
+        {
+            double num1 = InputNumber("Enter first number: ");
+            double num2 = InputNumber("Enter second number: ");
+            string operation = InputOperation("Enter operation, choose from {+, -, *, /}: ");
+            ShowOperationResult(num1, num2, operation);
             // Delay
             Console.ReadKey();
         }
