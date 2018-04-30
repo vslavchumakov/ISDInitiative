@@ -61,8 +61,8 @@ namespace readFiles
         {
             OpenFileDialog dialog = new OpenFileDialog //создаём диалог открытия фаила
             {
-                Filter = "All txt files(*txt)|*txt",  //фильтр форматов
-                InitialDirectory = "D:\\"   //начальная директория
+                Filter = _defaultFilter,  //фильтр форматов
+                InitialDirectory = _defaulDirectory   //начальная директория
             };
 
             if (dialog.ShowDialog() == DialogResult.OK)//если пользователь нажал ок

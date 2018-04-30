@@ -117,6 +117,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HomeTask_10", "HomeTask_10"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_2_v1_wpf", "HomeTask_10\Task_2_v1_wpf\Task_2_v1_wpf.csproj", "{E6B1D05E-2AA3-4829-86F4-556FF5E2C909}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_2_v1_streams", "HomeTask_10\Task_2_v1_streams\Task_2_v1_streams.csproj", "{77C42574-223D-445E-8D32-613B4CB38236}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -311,6 +313,10 @@ Global
 		{E6B1D05E-2AA3-4829-86F4-556FF5E2C909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6B1D05E-2AA3-4829-86F4-556FF5E2C909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6B1D05E-2AA3-4829-86F4-556FF5E2C909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C42574-223D-445E-8D32-613B4CB38236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C42574-223D-445E-8D32-613B4CB38236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C42574-223D-445E-8D32-613B4CB38236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C42574-223D-445E-8D32-613B4CB38236}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -363,6 +369,7 @@ Global
 		{B4222390-4314-4C1B-B475-CA9DAE0EE115} = {E5485A91-AFB9-4B76-88D2-D44122FC047C}
 		{269E2834-1671-4F64-A698-683C9EEB568E} = {D3C44CC6-DAFD-4C65-8FEE-BFB62C343B10}
 		{E6B1D05E-2AA3-4829-86F4-556FF5E2C909} = {A9528D9F-3389-41B8-A038-6CB04C2E64AE}
+		{77C42574-223D-445E-8D32-613B4CB38236} = {A9528D9F-3389-41B8-A038-6CB04C2E64AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {51B65EDD-33AB-4438-84BE-A502923E5BF9}
