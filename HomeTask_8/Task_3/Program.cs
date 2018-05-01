@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
 
 namespace Task_3
 {
@@ -29,7 +27,7 @@ namespace Task_3
             testDictionary.Add(1, "One");
             testDictionary.Add(2, "Two");
             
-            for (int i = 0; i < testDictionary.Count+1; i++) // Property Count work
+            for (int i = 0; i < testDictionary.Count+1; i++) // Property Count works
             {
                 Console.Write(testDictionary[i]+"\n"); // An indexer works
                 // go beyond the borders (i= testDictionary.Count+1) to show Exception
