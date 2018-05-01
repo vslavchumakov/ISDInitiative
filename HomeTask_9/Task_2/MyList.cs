@@ -16,7 +16,7 @@ namespace Task_2
         /// <summary>
         /// массив элементов коллекции
         /// </summary>
-        T[] items;
+        T[] _items;
 
         /// <summary>
         /// колличество добавленных элементов в коллекцию
@@ -44,7 +44,7 @@ namespace Task_2
             set
             {
                 _capacity = value;
-                Resize(_capacity);
+                Array.Resize(ref _items, _capacity);
             }
         }
 
@@ -55,8 +55,8 @@ namespace Task_2
         /// <returns></returns>
         public T this[int index]
         {
-            get => items[index];
-            set => items[index] = value;
+            get => _items[index];
+            set => _items[index] = value;
         }
 
         /// <summary>
@@ -72,32 +72,20 @@ namespace Task_2
         public void Add(T item)
         {
             //перевыделяем память, если это необходимо
-            if (Count >= items.Length)
+            if (Count >= _items.Length)
             {
-                Resize((int)1.5 * items.Length);
+                Array.Resize(ref _items, (int)1.5 * _items.Length);
             }
-            items[_count++] = item;
+            _items[_count++] = item;
         }
 
-        /// <summary>
-        /// метод перевыделяет память для коллекции
-        /// </summary>
-        private void Resize(int newSize)
-        {
-            T[] buffer = new T[newSize];
-            for (int i = 0; i < Count; i++)
-            {
-                buffer[i] = items[i];
-            }
-            items = buffer;
-        }
 
         /// <summary>
         /// очищение коллекции
         /// </summary>
         public void Clear()
         {
-            Array.Clear(items, 0, Count);
+            Array.Clear(_items, 0, Count);
             _count = 0;
         }
 
@@ -122,9 +110,9 @@ namespace Task_2
             //перебираем элементы array начиная с arrayIndex
             //идём до последнего элемента текущего контейнера, если это колличество меньше чем вместительность массива array
             //в пративном случае идём до конца массива array
-            for (int i = 0; i < ((items.Length > array.Length - arrayIndex) ? array.Length : items.Length); i++)
+            for (int i = 0; i < ((_items.Length > array.Length - arrayIndex) ? array.Length - arrayIndex : _items.Length); i++)
             {
-                array[arrayIndex + i] = items[i];
+                array[arrayIndex + i] = _items[i];
             }
         }
 
@@ -137,7 +125,7 @@ namespace Task_2
         {
             for (int i = 0; i < Count; i++)
             {
-                if (items[i].Equals(item))
+                if (_items[i].ToString().CompareTo(item.ToString()) == 0)
                 {
                     return i;
                 }
@@ -166,17 +154,17 @@ namespace Task_2
             }
 
             //перевыделение памяти, если необходимо
-            if (Count >= items.Length)
+            if (Count >= _items.Length)
             {
-                Resize((int)1.5 * items.Length);
+                Array.Resize(ref _items, (int)1.5 * _items.Length);
             }
 
             //вставка элемента
             for (int i = Count; i >= index; i--)
             {
-                items[i] = items[i - 1];
+                _items[i] = _items[i - 1];
             }
-            items[index] = item;
+            _items[index] = item;
             _count++;
         }
 
@@ -208,7 +196,7 @@ namespace Task_2
 
             for (int i = index; i < Count - 1; i++)
             {
-                items[i] = items[i + 1];
+                _items[i] = _items[i + 1];
             }
             _count--;
         }
@@ -219,7 +207,7 @@ namespace Task_2
         /// <returns>экземпляр класса MyListEnumerator</returns>
         public IEnumerator<T> GetEnumerator()
         {
-            return new MyListEnumerator(items, Count);
+            return new MyListEnumerator(_items, Count);
         }
 
         /// <summary>
@@ -232,7 +220,7 @@ namespace Task_2
         {
             for (int i = start; i <= end; i++)
             {
-                yield return items[i];
+                yield return _items[i];
             }
         }
 
@@ -244,10 +232,14 @@ namespace Task_2
         {
             for (int i = 0; i < Count; i++)
             {
-                yield return items[i];
+                yield return _items[i];
             }
         }
 
+        /// <summary>
+        /// Метод возвращает экземпляр класса, реализующий интерфейс IEnumerator - MyListEnumerator
+        /// </summary>
+        /// <returns>экземпляр класса MyListEnumerator</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -259,7 +251,7 @@ namespace Task_2
         public MyList()
         {
             //выделяем память под коллекцию
-            items = new T[_capacity];
+            _items = new T[_capacity];
         }
 
         /// <summary>

@@ -95,11 +95,32 @@ namespace Task_2
                 Console.Write(item + ", ");
             }
             Console.WriteLine();
+
+            Console.WriteLine("Test method CopyTo() to new int[3]: ");
+            int[] copyArray = new int[3];
+            list.CopyTo(copyArray, 0);
+            for (int j = 0; j < copyArray.Length; j++)
+            {
+                Console.Write(copyArray[j] + ", ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Test method CopyTo() to int[6], start index is 3: ");
+            Array.Resize(ref copyArray, copyArray.Length * 2);
+            list.CopyTo(copyArray, 3);
+            for (int j = 0; j < copyArray.Length; j++)
+            {
+                Console.Write(copyArray[j] + ", ");
+            }
+            Console.WriteLine();
+
             Console.WriteLine("Clear()");
             list.Clear();
 
             Console.WriteLine("Capacity: " + list.Capacity);
             Console.WriteLine("Count: " + list.Count);
+
+
             Console.ReadKey();
         }
     }
