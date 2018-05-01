@@ -36,6 +36,7 @@ namespace Task_7
 
             // Method Contain works 
             Console.WriteLine($"ArrayList contains \"One\"?  - {myArrayList.Contain("One")}");
+            Console.WriteLine($"ArrayList contains 5?  - {myArrayList.Contain(5)}");
 
             // Method Clear works 
             myArrayList.Clear();
