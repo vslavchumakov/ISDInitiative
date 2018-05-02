@@ -123,9 +123,14 @@ namespace Task_2
         /// <returns>индекс элемента, если не найден, возвращаём -1</returns>
         public int IndexOf(T item)
         {
+            if (item == null || _count == 0)
+            {
+                return -1;
+            }
+
             for (int i = 0; i < Count; i++)
             {
-                if (_items[i].ToString().CompareTo(item.ToString()) == 0)
+                if (_items[i].Equals(item))
                 {
                     return i;
                 }
