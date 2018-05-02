@@ -46,7 +46,7 @@ namespace Task_5
             //иначе перевыделяем память
             if (Count >= _elements.Length)
             {
-                Resize();
+                Array.Resize(ref _elements, _elements.Length + countResize);
             }
             _elements[_count++] = element;
         }
@@ -86,7 +86,7 @@ namespace Task_5
         {
             for (int i = 0; i < Count; i++)
             {
-                if (element == _elements[i])
+                if (element.Equals(_elements[i]))
                 {
                     return i;
                 }
@@ -150,7 +150,7 @@ namespace Task_5
                 //если нужно, перевыделяем память
                 if (Count >= _elements.Length)
                 {
-                    Resize();
+                    Array.Resize(ref _elements, _elements.Length + countResize);
                 }
                 //передвигаем элементы, освобождаем место
                 for (int i = Count; i >= index; i--)
@@ -170,32 +170,14 @@ namespace Task_5
         /// <param name="element">ссылка на элемент, который нужно удалить из коллекции</param>
         public void Remove(T element)
         {
-            for(int i = 0; i < Count; i++)
+            for (int i = 0; i < Count; i++)
             {
-                if (element == _elements[i])
+                if (element.Equals(_elements[i]))
                 {
                     RemoveAt(i);
                     return;
                 }
             }
-        }
-
-        /// <summary>
-        /// метод перевыделения памяти
-        /// </summary>
-        private void Resize()
-        {
-            T[] NewElements = new T[_elements.Length + countResize];
-            for (int i = 0; i < _elements.Length; i++)
-            {
-                NewElements[i] = _elements[i];
-            }
-            _elements = NewElements;
-
-            //отладка
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("add element-memory realloc");
-            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         /// <summary>
