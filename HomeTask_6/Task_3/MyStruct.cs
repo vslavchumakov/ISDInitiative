@@ -1,6 +1,6 @@
 ﻿namespace Task_3
 {
-    class MyClass
+    struct MyStruct
     {
         public string change;
     }
