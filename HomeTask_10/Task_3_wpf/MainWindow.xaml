@@ -1,0 +1,87 @@
+﻿<Window x:Class="Task_3_wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task_3_wpf"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="File Searcher" Height="400" Width="600">
+    <Window.Resources>
+        <Thickness x:Key="margin">4</Thickness>
+        <ObjectDataProvider 
+            x:Key="DirectoryProvider"
+            MethodName="GetDirectories"
+            ObjectType="{x:Type local:ListDirectories}">
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="Extension"
+                            ObjectType="{x:Type sys:Enum}"
+                            MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Extension"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="14"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="14"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Margin="{StaticResource margin}" >File name</Label>
+            <TextBox Name="fileName" Grid.Column="2"  Margin="{StaticResource margin}"></TextBox>
+            <ComboBox Name="extensionFile" Grid.Column="3" Margin="{StaticResource margin}" ItemsSource="{Binding Source={StaticResource Extension }}" SelectedIndex="0" ></ComboBox>
+            <Label Grid.Column="4" Margin="{StaticResource margin}">Directory</Label>
+            <ComboBox Name="directoryFile" DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource DirectoryProvider}}" Grid.Column="5" SelectedIndex="0" Margin="{StaticResource margin}" IsSynchronizedWithCurrentItem="True" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="Files" Grid.Row="1">
+                <ScrollViewer Grid.Column="0">
+                    <ListBox  Name="listFiles" SelectedIndex="0" SelectionChanged="ListFiles_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label  Name="PathFile" Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </GroupBox>
+            <ScrollViewer Grid.Column="1">
+                <TextBox IsReadOnly="True" Name="textFromFile"></TextBox>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="2" Grid.Column="1" Margin="{StaticResource margin}" Click="Button_ClickSearch">Search</Button>
+            <Button Grid.Row="2" Name="ButtonCreate" Grid.Column="2" Margin="{StaticResource margin}" IsEnabled="False" Click="ButtonCreate_Click">Create Zip</Button>
+        </Grid>
+    </Grid>
+</Window>
