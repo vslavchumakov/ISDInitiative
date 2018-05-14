@@ -59,44 +59,13 @@ namespace Task_3_wpf
             string parentDir = Directory.GetParent(filePath).FullName;
             string zip = ".zip";
             string zipPath = Path.Combine(parentDir, fileName) + zip;
-            //создаём папку, копируем в него фаил для архивации, производим архивацию
             if (!Directory.Exists(zipPath))
             {
-                //задача создания директории
-                Task task1 = Task.Factory.StartNew(() =>
+                using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Create))
                 {
-                    Directory.CreateDirectory(zipPath);
-                });
-
-                task1.Wait();
-                task1.Dispose();
-
-                //задача копирования файла в директорию
-                Task task2 = Task.Factory.StartNew(() =>
-                {
-                    File.Copy(filePath, Path.Combine(zipPath, fileName) + "." + extension.ToLower());
-                });
-
-                task2.Wait();
-                task2.Dispose();
-
-                try
-                {
-                    //задача архивирования
-                    Task task3 = Task.Factory.StartNew(() =>
-                    {
-                        ZipFile.CreateFromDirectory(parentDir, zipPath);
-                    });
-
-
-                    task3.Wait();
-                    task3.Dispose();
-                    return zipPath;
+                    archive.CreateEntryFromFile(filePath, fileName, CompressionLevel.Fastest);
                 }
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
+                return zipPath;
             }
             else
             {
