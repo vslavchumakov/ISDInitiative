@@ -78,7 +78,7 @@ namespace myDictionary
         /// </summary>
         public void Clear()
         {
-            Array.Clear(_keys, 0,_keys.Length);
+            Array.Clear(_keys, 0, _keys.Length);
             Array.Clear(_values, 0, _values.Length);
             _count = 0;
         }
@@ -96,8 +96,28 @@ namespace myDictionary
         /// <returns>значение по ключю</returns>
         public TValue this[TKey key]
         {
-            get => _values[Array.IndexOf(_keys, key)];
-            set => _values[Array.IndexOf(_keys, key)] = value;
+            get
+            {
+                if (ContainsKey(key))
+                {
+                    return _values[Array.IndexOf(_keys, key)];
+                }
+                else
+                {
+                    throw new KeyNotFoundException();
+                }
+            }
+            set
+            {
+                if (ContainsKey(key))
+                {
+                    _values[Array.IndexOf(_keys, key)] = value;
+                }
+                else
+                {
+                    throw new KeyNotFoundException();
+                }
+            }
         }
 
         /// <summary>
@@ -217,7 +237,7 @@ namespace myDictionary
                     break;
                 }
             }
-            if (index > 0)//если ключ найден, затираем значение по ключю в ассоциированных массивах
+            if (index > 0)
             {
                 for (int i = index; i < _count - 1; i++)
                 {
@@ -227,7 +247,7 @@ namespace myDictionary
                 _count--;
                 return true;
             }
-            else//если ключ не найден, удалять нечего
+            else
             {
                 return false;
             }
@@ -249,7 +269,7 @@ namespace myDictionary
                     break;
                 }
             }
-            if (index > 0)//если ключ найден, затираем значение по ключю в ассоциированных массивах
+            if (index > 0)
             {
                 for (int i = index; i < _count - 1; i++)
                 {
@@ -259,7 +279,7 @@ namespace myDictionary
                 _count--;
                 return true;
             }
-            else//если ключ не найден, удалять нечего
+            else
             {
                 return false;
             }
@@ -281,7 +301,6 @@ namespace myDictionary
                     return true;
                 }
             }
-            //присваиваем значение по умодлчанию
             value = default(TValue);
             return false;
         }

@@ -49,14 +49,39 @@ namespace Task_2
         }
 
         /// <summary>
-        /// определяем индексатор
+        /// определяем индексатор, метод выбрасывает исключение, если индекс за пределами диапазона значений
         /// </summary>
         /// <param name="index">индекс текущего элемента</param>
         /// <returns></returns>
         public T this[int index]
         {
-            get => _items[index];
-            set => _items[index] = value;
+            get
+            {
+                if (index >= 0 && index < _count)
+                {
+                    return _items[index];
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException();
+                }
+            }
+
+            set
+            {
+                if (index >= 0 && index < _count)
+                {
+                    _items[index] = value;
+                }
+                else if (index == _count)
+                {
+                    Add(value);
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException();
+                }
+            }
         }
 
         /// <summary>
@@ -145,26 +170,22 @@ namespace Task_2
         /// <param name="item">элемент, который добавляется в коллекцию</param>
         public void Insert(int index, T item)
         {
-            //если индекс находится за пределами коллекции
             if (index < 0 || index > Count)
             {
                 return;
             }
 
-            //добавление в конец
             if (index == Count)
             {
                 Add(item);
                 return;
             }
 
-            //перевыделение памяти, если необходимо
             if (Count >= _items.Length)
             {
                 Array.Resize(ref _items, (int)1.5 * _items.Length);
             }
 
-            //вставка элемента
             for (int i = Count; i >= index; i--)
             {
                 _items[i] = _items[i - 1];
@@ -255,7 +276,6 @@ namespace Task_2
         /// </summary>
         public MyList()
         {
-            //выделяем память под коллекцию
             _items = new T[_capacity];
         }
 
@@ -280,7 +300,7 @@ namespace Task_2
             /// <summary>
             /// ссылка на массив, перебираемых элементов
             /// </summary>
-            T[] items=new T[0];
+            T[] items = new T[0];
 
             /// <summary>
             /// колличество добавленных элеметов в массиве
