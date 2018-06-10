@@ -1,6 +1,6 @@
 ﻿namespace Task_2
 {
-    internal class Rectangle
+    public class Rectangle
     {
         /// <summary>
         /// First length of rectangle

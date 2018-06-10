@@ -12,7 +12,7 @@ namespace Task_6
         /// <param name="usd"></param>
         /// <param name="eur"></param>
         /// <param name="rub"></param>
-        public Converter(double usd, double eur, double rub)
+        internal Converter(double usd, double eur, double rub)
         {
             // Initialize fields of class
             this.usd = usd;
@@ -26,7 +26,7 @@ namespace Task_6
         /// <param name="eurSum"></param>
         /// <param name="rubSum"></param>
         /// <param name="usdSum"></param>
-        public void ConvertToUAH(double usdSum = 0, double rubSum=0, double eurSum = 0)
+        internal void ConvertToUAH(double usdSum = 0, double rubSum=0, double eurSum = 0)
         {
             if (eurSum + rubSum == 0) Console.WriteLine($"{usdSum} USD = {usdSum * usd} UAH");
             if (eurSum + usdSum == 0) Console.WriteLine($"{rubSum} RUB = {rubSum * rub} UAH");
@@ -40,7 +40,7 @@ namespace Task_6
         /// <param name="toUsd"></param>
         /// <param name="toEur"></param>
         /// <param name="toRub"></param>
-        public void ConvertFromUAH(double uahSum, bool toUsd=true, bool toEur=false, bool toRub=false)
+        internal void ConvertFromUAH(double uahSum, bool toUsd=true, bool toEur=false, bool toRub=false)
         {
             if (!(toUsd | toEur)) Console.WriteLine($"{uahSum} UAH = {uahSum / rub} RUB");
             if (!(toUsd | toRub)) Console.WriteLine($"{uahSum} UAH = {uahSum / eur} EUR");

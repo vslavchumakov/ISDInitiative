@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FDA6C617-F6DD-492F-976D-7E297A715ADE}</ProjectGuid>
+    <ProjectGuid>{C1207C69-1274-420C-9ED5-AC1A4315B465}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task_2</RootNamespace>
-    <AssemblyName>Task_2</AssemblyName>
+    <RootNamespace>Task_3_v2</RootNamespace>
+    <AssemblyName>Task_3_v2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,19 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pupils\BadPupil.cs" />
-    <Compile Include="ClassRoom.cs" />
-    <Compile Include="Pupils\ExcelentPupil.cs" />
-    <Compile Include="Pupils\GoodPupil.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="Parts\Author.cs" />
+    <Compile Include="Parts\Content.cs" />
+    <Compile Include="Parts\Title.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pupil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="UML\UML.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
