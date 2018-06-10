@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2FD9B66-5E79-46A2-B672-4BDA1017CACA}</ProjectGuid>
+    <ProjectGuid>{A656398D-EBF6-4105-ACFD-66D59A310B16}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Task_1_v2</RootNamespace>
     <AssemblyName>Task_1_v2</AssemblyName>
@@ -42,8 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrinterColor.cs" />
     <Compile Include="Printer.cs" />
+    <Compile Include="PrinterColor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

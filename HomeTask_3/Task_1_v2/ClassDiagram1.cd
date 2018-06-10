@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Task_1_v2.Printer" Collapsed="true">
-    <Position X="0.75" Y="2" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAgAAEAAA=</HashCode>
       <FileName>Printer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Task_1_v2.PrinterColor" Collapsed="true">
-    <Position X="4.5" Y="2.25" Width="1.5" />
+    <Position X="5.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PrinterColor.cs</FileName>
     </TypeIdentifier>
   </Class>

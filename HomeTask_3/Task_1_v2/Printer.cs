@@ -4,7 +4,7 @@ namespace Task_1_v2
     public class Printer
     {
         protected ConsoleColor Color { get; set; } = ConsoleColor.Black;
-        
+
         // Реализация шаблона NVI
         public void Print(string value) // Шаблонный метод
         {
