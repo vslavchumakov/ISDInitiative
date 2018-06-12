@@ -64,7 +64,6 @@ namespace TextEditor.BL
         /// Method CreateArchive creates an archive next to the selected file
         /// </summary>
         /// <param name="filePath">File Path</param>
-        /// <param name="fileName">File Name</param>
         /// <returns></returns>
         public bool CreateArchive(string filePath)
         {
